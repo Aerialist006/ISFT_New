@@ -55,8 +55,7 @@ export default function Sidebar({ children, email, name, last }) {
 
         <div className="border flex p-2 md:p-4 ">
           <div
-            className="
-              flex items-center
+            className="              flex items-center
               overflow-hidden transition-all gap-3   
           "
           >
