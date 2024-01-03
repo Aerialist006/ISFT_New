@@ -36,7 +36,7 @@ const Login = () => {
             </div>
           </div>
 
-          <Button style={{ width: "100%" }} onClick={() => navigate("/")}>Iniciar Sesión</Button>
+          <Button style={{ width: "100%" }} onClick={() => navigate("/dashboard")}>Iniciar Sesión</Button>
         </div>
       </div>
     </div>
