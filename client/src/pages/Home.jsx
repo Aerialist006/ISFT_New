@@ -40,14 +40,14 @@ const Home = () => {
   return (
     <>
       <div
-        className={`flex  justify-between ${
-          isMobile ? "flex-col pb-4" : "flex-row pb-8"
+        className={`flex  justify-between  ${
+          isMobile ? "flex-col pb-3" : "flex-row pb-8 items-center"
         } `}
       >
-        <p className=" text-xl font-semibold">Dashboard</p>
+        <p className={`${isMobile ? "text-3xl" : "text-4xl"} font-semibold`}>Dashboard</p>
         <p className="text-gray-400">{currdate.substring(0, 16)}</p>
       </div>
-      <div className={`flex flex-wrap ${isMobile ? "gap-4" : "gap-8"}`}>
+      <div className={`flex flex-wrap ${isMobile ? "gap-4" : "gap-6"}`}>
         {data.map((val, key) => {
           return (
             <SubjectCard color={val.color} code={val.code} name={val.name} />

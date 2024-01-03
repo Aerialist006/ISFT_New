@@ -18,12 +18,9 @@ const MainPage = ({ Main }) => {
   return (
     <div className="flex">
       <Navbar />
-      <main
-        style={{ height: "100dvh" }}
-        className={` bg-gray-100 overflow-y-scroll `}
-      >
-        <div className={isMobile ? "p-2" : "p-6"}>
-        <Main />
+      <main className=" h-dvh w-full bg-slate-100 overflow-y-scroll ">
+        <div className={isMobile ? "p-3" : "p-6 pt-10"}>
+          <Main />
         </div>
       </main>
     </div>

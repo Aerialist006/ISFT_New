@@ -36,8 +36,8 @@ const Navbar = () => {
         />
         <SidebarItem
           icon={<CalendarDays size={20} />}
-          text="Calendario"
-          route="/calendario"
+          text="Horario"
+          route="/horario"
         />
         <SidebarItem
           icon={<CheckCheck size={20} />}

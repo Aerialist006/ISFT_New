@@ -6,7 +6,7 @@ const SubjectCard = ({ color, code, name }) => {
   return (
     <div
       onClick={() => {
-        navigate("/materia");
+        navigate("/publicar");
       }}
       className="h-28 w-72 p-4 rounded-xl flex gap-3 group cursor-pointer "
       style={{ backgroundColor: color }}
