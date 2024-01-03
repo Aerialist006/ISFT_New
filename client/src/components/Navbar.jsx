@@ -27,7 +27,7 @@ const Navbar = () => {
         <SidebarItem
           icon={<LayoutDashboard size={20} />}
           text="Dashboard"
-          route="/"
+          route="/dashboard"
         />
         <SidebarItem
           icon={<BookOpenCheck size={20} />}
