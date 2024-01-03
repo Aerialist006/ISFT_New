@@ -20,18 +20,16 @@ export default function Sidebar({ children, email, name, last }) {
       mobileMediaQuery.removeEventListener("change", handleMobileChange);
     };
   }, []);
-
   return (
     <aside
-      style={{ height: "100dvh" }}
-      className={`${expanded ? (isMobile ? "w-screen" : "w-full") : ""}`}
+      className={` h-dvh ${expanded ? (isMobile ? "w-screen" : "w-full") : ""}`}
     >
       <nav
         className={`h-full flex flex-col bg-white border-r shadow-sm  ${
           !expanded ? "items-center" : ""
         }`}
       >
-        <div className="px-2 py-2 md:pt-10 md:px-4 pb-2 flex justify-between items-center">
+        <div className="p-3 md:pt-10 md:px-4 pb-2 flex justify-between items-center">
           <img
             src="https://img.logoipsum.com/243.svg"
             className={`overflow-hidden transition-all ${
@@ -53,12 +51,8 @@ export default function Sidebar({ children, email, name, last }) {
           <ul className="flex-1 px-0 md:px-4">{children}</ul>
         </SidebarContext.Provider>
 
-        <div className="border flex p-2 md:p-4 ">
-          <div
-            className="              flex items-center
-              overflow-hidden transition-all gap-3   
-          "
-          >
+        <div className="border-t flex p-3 md:p-4 ">
+          <div className="flex items-center overflow-hidden transition-all gap-3">
             <div className="flex-none">
               <Avatar>
                 {!name && !last
@@ -68,7 +62,7 @@ export default function Sidebar({ children, email, name, last }) {
             </div>
             <div
               className={`flex justify-between items-center ${
-                expanded ? (isMobile ? "w-screen" : "gap-8") : "hidden"
+                expanded ? (isMobile ? "w-screen" : "gap-12") : "hidden"
               }`}
             >
               <div className="leading-4">
@@ -78,7 +72,10 @@ export default function Sidebar({ children, email, name, last }) {
                 <span className="text-xs text-gray-600">{email}</span>
               </div>
               <button
-                onClick={() => navigate("/settings")}
+                onClick={() => {
+                  if (isMobile) setExpanded(false);
+                  navigate("/settings");
+                }}
                 className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
               >
                 <Settings />
@@ -94,22 +91,31 @@ export default function Sidebar({ children, email, name, last }) {
 export function SidebarItem({ icon, text, active, alert, route }) {
   const { expanded, setExpanded } = useContext(SidebarContext);
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mobileMediaQuery = window.matchMedia("(max-width: 767px)");
+    const handleMobileChange = (event) => {
+      setIsMobile(event.matches);
+    };
+    mobileMediaQuery.addEventListener("change", handleMobileChange);
+    setIsMobile(mobileMediaQuery.matches);
+    return () => {
+      mobileMediaQuery.removeEventListener("change", handleMobileChange);
+    };
+  }, []);
 
   return (
     <li
       className={`
-        relative flex items-center py-2 px-3 my-1
-        font-medium rounded-md cursor-pointer
-        transition-colors group
-        ${
-          active
-            ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-            : "hover:bg-indigo-50 text-gray-600"
-        }
+      const firstli = {'relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group ${
+        active
+          ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
+          : "hover:bg-indigo-50 text-gray-600"
+      }'}
     `}
       onClick={() => {
+        if (isMobile) setExpanded(false);
         navigate(route);
-        setExpanded(false);
       }}
     >
       {icon}

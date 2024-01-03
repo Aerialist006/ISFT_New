@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Table from "@mui/joy/Table";
 import Button from "@mui/joy/Button";
-import Sheet from "@mui/joy/Sheet";
 
 const SubjectView = () => {
   const students = [
+    { name: "Juan", id: "1" },
+    { name: "Jaime", id: "2" },
+    { name: "Juanito", id: "3" },
+    { name: "Jimena", id: "4" },
+    { name: "Juana", id: "5" },
+    { name: "Jennifer", id: "6" },
+    { name: "Jose", id: "7" },
+    { name: "Jorge", id: "8" },
+    { name: "Josefina", id: "9" },
+    { name: "Julian", id: "10" },
+    { name: "Juan", id: "1" },
+    { name: "Jaime", id: "2" },
+    { name: "Juanito", id: "3" },
+    { name: "Jimena", id: "4" },
+    { name: "Juana", id: "5" },
+    { name: "Jennifer", id: "6" },
+    { name: "Jose", id: "7" },
+    { name: "Jorge", id: "8" },
+    { name: "Josefina", id: "9" },
+    { name: "Julian", id: "10" },
     { name: "Juan", id: "1" },
     { name: "Jaime", id: "2" },
     { name: "Juanito", id: "3" },
@@ -61,29 +80,24 @@ const SubjectView = () => {
   return (
     <>
       <div
-        className={`font-semibold ${isMobile ? "text-2xl " : "text-4xl pb-8 pt-4"}`}
+        className={`font-semibold ${
+          isMobile ? "text-3xl pb-3" : "text-4xl pb-8"
+        }`}
       >
-        MATEMÁTICAS
+        Matemáticas
       </div>
       <div className=" rounded-xl p-2 bg-white ">
-        <div className="overflow-auto max-h-1-2 z-20">
+        <div className="overflow-auto max-h-[65vh] z-20">
           <Table
-            style={{
-              tableLayout: "fixed",
-            }}
             borderAxis="bothBetween"
             hoverRow={true}
             variant="plain"
+            style={{ zIndex: 0 }}
             stickyHeader={true}
           >
             <thead>
               <tr>
-                <th
-                  style={{ width: isMobile ? 120 : 150 }}
-
-                >
-                  Estudiantes
-                </th>
+                <th style={{ width: isMobile ? 120 : 150 }}>Estudiantes</th>
                 {criteria.map((val, key) => {
                   return (
                     <th
@@ -91,8 +105,6 @@ const SubjectView = () => {
                         width: isMobile ? 120 : 150,
                         fontWeight: "600",
                         color: "#5A5A72",
-                        position: "sticky",
-                        zIndex: 0,
                       }}
                     >
                       {val.name + " - " + val.maxGrad}
