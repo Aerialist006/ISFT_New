@@ -36,7 +36,7 @@ const Home = () => {
     };
   }, []);
 
-  const currdate = Date();
+  const currdate = new Date();
   return (
     <>
       <div
@@ -45,7 +45,7 @@ const Home = () => {
         } `}
       >
         <p className={`${isMobile ? "text-3xl" : "text-4xl"} font-semibold`}>Dashboard</p>
-        <p className="text-gray-400">{currdate.substring(0, 16)}</p>
+        <p className="text-gray-400 capitalize">{currdate.toLocaleDateString("es-SD",{ weekday:'short', day:'numeric', month:'short', year:'numeric'})}</p>
       </div>
       <div className={`flex flex-wrap ${isMobile ? "gap-4" : "gap-6"}`}>
         {data.map((val, key) => {

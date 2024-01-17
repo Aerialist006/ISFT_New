@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { Input, Checkbox, Button } from "@mui/joy";
+import { Button } from "@mui/joy";
+import LabeledInput from "../assets/LabeledInput"
 
 const LoginM = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,15 +26,15 @@ const LoginM = () => {
           Ingrese sus detalles a continuación
         </div>
         <div className="py-8  flex flex-col w-full gap-4">
-          <Input placeholder="Código" size="lg" variant="outlined" />
-          <Input placeholder="Contraseña" size="lg" variant="outlined" />
+          <LabeledInput placeholder="Código" size="md" variant="outlined" />
+          <LabeledInput placeholder="Contraseña" size="md" variant="outlined" />
           <div className="text-xs flex flex-col transition-all text-gray-600 hover:text-black items-center">
             <p className="font-semibold">¿Olvidaste tu contraseña?</p>
             <p className="group-hover:">Recuperala Aquí</p>
           </div>
         </div>
 
-        <Button style={{ width: "100%" }} onClick={() => navigate("/")}>Iniciar Sesión</Button>
+        <Button style={{ width: "100%" }} onClick={() => navigate("/dashboard")}>Iniciar Sesión</Button>
       </div>
     </div>
   );

@@ -7,7 +7,10 @@ import SubjectView from "./pages/SubjectView";
 import Login from "./pages/Login";
 import LoginM from "./pages/LoginM";
 import Settings from "./pages/Settings";
+import Schedule from "./pages/Schedule";
+import SubjectViewStudent from "./pages/SubjectViewStudent";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
+import Calificaciones from "./pages/Calificaciones";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,6 +41,9 @@ function App() {
             <Route path="/" element={<Navigate to="/login"/>}/>
             <Route path="/dashboard" element={<MainPage Main={Home} />} />
             <Route path="/publicar" element={<MainPage Main={SubjectView} />} />
+            <Route path="/ver" element={<MainPage Main={SubjectViewStudent} />} />
+            <Route path="/horario" element={<MainPage Main={Schedule} />} />
+            <Route path="/calificaciones" element={<MainPage Main={Calificaciones} />} />
             <Route path="/settings" element={<MainPage Main={Settings} />} />
             <Route path="/login" Component={!isMobile ? Login : LoginM} />
           </Routes>
