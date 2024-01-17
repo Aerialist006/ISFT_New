@@ -39,11 +39,6 @@ const Navbar = () => {
           text="Horario"
           route="/horario"
         />
-        <SidebarItem
-          icon={<CheckCheck size={20} />}
-          text="ToDo"
-          route="/todo"
-        />
       </Sidebar>
     </div>
   );
